@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, deleteUser, addUser } from "./userSlice";
 import Loader from "./Loader";
-import './App.css'; 
+import './App.css';
 
 const App = () => {
   const dispatch = useDispatch();
   const { users, loading } = useSelector((state) => state.users);
-  const [newUser, setNewUser] = useState("");
-  const [hoveredUserId, setHoveredUserId] = useState(null);
+  const [newUser, setNewUser] = useState(""); 
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -49,8 +48,7 @@ const App = () => {
               <li
                 key={user.id}
                 className="userItem"
-                onMouseEnter={() => setHoveredUserId(user.id)}
-                onMouseLeave={() => setHoveredUserId(null)}
+ 
               >
                 <span className="userName">{user.name}</span>
                 <button
